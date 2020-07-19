@@ -11,7 +11,7 @@ npm install textras
 
 ## Usage
 
-```node
+```javascript
 require('textras');
 
 const string = "hello world";
@@ -21,6 +21,7 @@ string.remove(3)     //===> "helo world"
 string.italic()      //===> "𝘩𝘦𝘭𝘭𝘰 𝘸𝘰𝘳𝘭𝘥"
 string.bold()        //===> "𝗵𝗲𝗹𝗹𝗼 𝘄𝗼𝗿𝗹𝗱"
 string.separate('-') //===> "h-e-l-l-o-w-o-r-l-d"
+string.sentenceCap() //===> "Hello world"
 ```
 
 ## Contributing
