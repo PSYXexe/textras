@@ -8,6 +8,37 @@ function wordCap(str) {
     })
     return o;
   };
+
+  function sentenceCap(char) {
+
+    let str = this;
+    
+      let sentences = str.toLowerCase().split(char || ".");
+      let updated = [];
+    
+      sentences.map( function (sentence) {
+        if ( sentence ) {
+          if ( sentence[0] !== ' ' ) {
+            let output = sentence.charAt(0).toUpperCase() + sentence.slice(1);
+            updated.push( output );
+          }
+          else {
+            let output = sentence.charAt(1).toUpperCase() + sentence.slice(2);
+            updated.push( ' ' + output );
+          }
+        }
+      });
+    
+      let final = updated.join(char || '.');
+    
+      if ( str.endsWith(char || ".") ) {
+        final += char || '.';
+      }
+    
+      return final;
+    
+  };
+
   function removeFromEnd(c) {
     if(!c) c = 1;
     
@@ -58,6 +89,7 @@ function wordCap(str) {
     return o;
     
   }
+
   
   function bold() {
     let itL = Array.from('𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭');
@@ -93,6 +125,4 @@ function wordCap(str) {
     Array.prototype.pushAfter = pushAfter;
     String.prototype.italic = italic;
     String.prototype.bold = bold;
-
-
-  
+    String.prototype.sentenceCap = sentenceCap;
